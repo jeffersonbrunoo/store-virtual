@@ -1,0 +1,23 @@
+# Ignorar node_modules de ambos os subprojetos
+**/node_modules/
+
+# Ignorar arquivos de ambiente
+**/.env
+**/.env.test
+
+# Ignorar pastas de build (se existirem)
+dropshipping-backend/dist/
+dropshipping-backend/build/
+dropshipping-frontend/dist/
+dropshipping-frontend/build/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-error.log*
+
+# Arquivos de editor ou sistema operacional
+.DS_Store
+Thumbs.db
+.vscode/
+*.swp
