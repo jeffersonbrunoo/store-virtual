@@ -1,0 +1,26 @@
+/* ThankYouPage.module.css (após) */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+.title {
+  font-size: var(--font-size-lg);  /* 20px */
+  margin-bottom: 1rem;
+  color: var(--color-text);         /* #424242 */
+}
+
+.button {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-primary);  /* #1E88E5 */
+  color: var(--color-surface);             /* #FFFFFF */
+  border-radius: 4px;
+}
+.button:hover {
+  background-color: var(--color-primary-dark); /* #1669BB */
+}

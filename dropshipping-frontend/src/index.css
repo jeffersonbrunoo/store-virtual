@@ -1,0 +1,75 @@
+/* index.css – RESET e VARIÁVEIS GLOBAIS */
+
+/* 1) RESET GERAL */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+/* 2) VARIÁVEIS CSS */
+:root {
+  --color-primary: #1E88E5;
+  --color-primary-dark: #1669BB;
+  --color-secondary: #43A047;
+  --color-secondary-dark: #388E3C;
+
+  --color-bg: #F5F5F5;
+  --color-surface: #FFFFFF;
+  --color-text: #424242;
+  --color-text-secondary: #6C757D;
+  --color-border: #E0E0E0;
+  /* Tipografia */
+  --font-family-base: 'Helvetica Neue', Arial, sans-serif;
+  --font-size-base: 16px;
+}
+
+/* 3) ESTILOS GERAIS */
+body {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* 4) UTILITÁRIOS MÍNIMOS */
+.d-flex { display: flex !important; }
+.justify-between { justify-content: space-between !important; }
+.align-center { align-items: center !important; }
+
+.m-1 { margin: 0.25rem !important; }
+.m-2 { margin: 0.5rem !important; }
+.m-3 { margin: 1rem !important; }
+
+.p-1 { padding: 0.25rem !important; }
+.p-2 { padding: 0.5rem !important; }
+.p-3 { padding: 1rem !important; }

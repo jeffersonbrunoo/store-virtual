@@ -1,0 +1,106 @@
+/* CartPage.module.css (após) */
+.container {
+  padding: 1rem 0;
+}
+
+.title {
+  font-size: var(--font-size-lg); /* 20px */
+  margin-bottom: 1rem;
+  color: var(--color-text);        /* #424242 */
+}
+
+.cartItems {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.cartItem {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--color-surface); /* #FFFFFF */
+  border: 1px solid var(--color-border);   /* #E0E0E0 */
+  border-radius: 8px;
+}
+
+.cartItemImage {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  border-radius: 4px;
+}
+
+.cartItemDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.itemTitle {
+  font-size: var(--font-size-base); /* 16px */
+  color: var(--color-text);         /* #424242 */
+}
+
+.itemPrice {
+  color: var(--color-primary);      /* #1E88E5 */
+}
+
+.itemQuantity {
+  width: 60px;
+}
+
+.itemSubtotal {
+  font-weight: bold;
+}
+
+.removeButton {
+  padding: 0.5rem 1rem;
+  background-color: #DC3545; /* cor de “remover” (mantém vermelho pois não faz parte da paleta principal) */
+  color: var(--color-surface); /* #FFFFFF teste*/
+  border-radius: 4px;
+}
+.removeButton:hover {
+  background-color: #C82333; /* mantém vermelho escuro */
+}
+
+.cartSummary {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+}
+
+.totalLabel {
+  font-size: var(--font-size-base); /* 16px */
+  font-weight: bold;
+}
+
+.clearButton {
+  padding: 0.5rem 1rem;
+  background-color: var(--color-secondary); /* #43A047 */
+  color: var(--color-surface);               /* #FFFFFF */
+  border-radius: 4px;
+}
+.clearButton:hover {
+  background-color: var(--color-secondary-dark); /* #388E3C */
+}
+
+.checkoutButton {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-primary);       /* #1E88E5 */
+  color: var(--color-surface);                  /* #FFFFFF */
+  border-radius: 4px;
+}
+.checkoutButton:hover {
+  background-color: var(--color-primary-dark);  /* #1669BB */
+}
+
+@media (min-width: 768px) {
+  .cartItem {
+    grid-template-columns: 150px 2fr 1fr 1fr auto;
+  }
+}
