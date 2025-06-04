@@ -1,23 +1,27 @@
-# Ignorar node_modules de ambos os subprojetos
-**/node_modules/
-
-# Ignorar arquivos de ambiente
-**/.env
-**/.env.test
-
-# Ignorar pastas de build (se existirem)
-dropshipping-backend/dist/
-dropshipping-backend/build/
-dropshipping-frontend/dist/
-dropshipping-frontend/build/
-
-# Logs
-*.log
+# Node.js
+node_modules/
 npm-debug.log*
 yarn-error.log*
 
-# Arquivos de editor ou sistema operacional
+# Ambientes de configuração
+.env
+.env.*.local
+
+# Arquivos de build ou de saída
+dist/
+build/
+
+# Arquivos do Docker
+docker-compose.override.yml
+
+# Sistema operacional
 .DS_Store
 Thumbs.db
+
+# IDEs e editores
 .vscode/
-*.swp
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
