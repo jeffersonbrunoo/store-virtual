@@ -53,8 +53,8 @@ DROPP/
 ### 1. Clonar o repositório e entrar na pasta raiz
 
 ```bash
-git clone git@github.com:SEU_USUARIO/DROPP.git
-cd DROPP
+git clone git@github.com:jeffersonbrunoo/store-virtual.git
+cd store-virtual
 ```
 
 ---
@@ -121,53 +121,15 @@ cd DROPP
    http://localhost:3000
    ```
 
----
+## Dockerização
 
-## Uso Básico
+Este projeto já possui Dockerfiles para o **backend**, **frontend** e um `docker-compose.yml` para orquestrar toda a aplicação (incluindo o banco MongoDB). Siga os passos abaixo para subir o ambiente completo em containers:
 
-1. **Criar produtos**  
-   No backend (por Postman ou similar), faça um **POST** para:
-   ```
-   http://localhost:5001/api/products
-   ```
-   enviando JSON com, pelo menos, `name` e `price`.
-
-2. **Navegar no frontend**  
-   Abra no navegador:
-   ```
-   http://localhost:3000
-   ```
-   - A Home exibe todos os produtos.  
-   - Clicando em um produto, vê detalhes e pode adicioná-lo ao carrinho.  
-   - Na página “Carrinho”, ajuste quantidades ou siga para “Checkout”.
-
-3. **Finalizar compra**  
-   No Checkout, preencha nome, e-mail e endereço, e envie o pedido.
+1. **Clone este repositório** (caso ainda não tenha clonado):
+   ```bash
+  git clone git@github.com:jeffersonbrunoo/store-virtual.git
+  cd store-virtual
 
 ---
 
-## Contribuição
 
-1. Faça **fork** deste repositório.  
-2. Clone seu fork:
-   ```bash
-   git clone git@github.com:SEU_USUARIO/DROPP.git
-   cd DROPP
-   ```
-3. Crie um branch:
-   ```bash
-   git checkout -b feat/nova-funcionalidade
-   ```
-4. Implemente suas modificações, depois:
-   ```bash
-   git add .
-   git commit -m "Descrição da mudança"
-   git push origin feat/nova-funcionalidade
-   ```
-5. Abra um **Pull Request** no repositório original.
-
----
-
-## Licença
-
-Este projeto está licenciado sob a **MIT License**.
