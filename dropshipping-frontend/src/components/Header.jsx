@@ -1,5 +1,5 @@
 // src/components/Header.jsx
-import { ShoppingCart, Home as HomeIcon } from 'lucide-react'; // npm install lucide-react
+import { ShoppingCart, Home as HomeIcon, Info, Mail } from 'lucide-react'; // npm install lucide-react
 import { Link, NavLink } from 'react-router-dom';
 import { useContext } from 'react';
 import { CartContext } from '../context/CartContext.jsx';
@@ -38,6 +38,26 @@ export default function Header() {
         >
           <ShoppingCart size={18} style={{ marginRight: '6px' }} />
           Carrinho {totalCount > 0 && `(${totalCount})`}
+        </NavLink>
+
+        <NavLink
+          to="/about"
+          className={({ isActive }) =>
+            isActive ? `${styles.navLink} ${styles.activeNavLink}` : styles.navLink
+          }
+        >
+          <Info size={18} style={{ marginRight: '6px' }} />
+          Sobre nós {totalCount > 0 && `(${totalCount})`}
+        </NavLink>
+
+        <NavLink
+          to="/contact"
+          className={({ isActive }) =>
+            isActive ? `${styles.navLink} ${styles.activeNavLink}` : styles.navLink
+          }
+        >
+          <Mail size={18} style={{ marginRight: '6px' }} />
+          Fale Conosco {totalCount > 0 && `(${totalCount})`}
         </NavLink>
       </nav>
     </header>
