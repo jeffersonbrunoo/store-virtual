@@ -1,7 +1,7 @@
 # ---------------------------------------------------
 # STAGE 1: Builder – instala dependências e prepara o código
 # ---------------------------------------------------
-FROM node:22-alpine AS builder
+FROM node:24-alpine AS builder
 
 # Define diretório de trabalho dentro do container
 WORKDIR /app

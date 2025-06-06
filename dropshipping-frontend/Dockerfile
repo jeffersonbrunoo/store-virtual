@@ -30,7 +30,7 @@ RUN rm -rf /usr/share/nginx/html/*
 COPY --from=builder /app/build /usr/share/nginx/html
 
 # (Opcional) Se precisar de configuração customizada do Nginx para React Router:
- COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/nginx.conf
 
 # Expõe a porta 80 (onde o Nginx irá servir)
 EXPOSE 80

@@ -29,10 +29,10 @@ services:
       - "5000:5000"
     depends_on:
       - mongo
-    volumes:
-      - ./dropshipping-backend:/app
+#    volumes:
+#      - ./dropshipping-backend:/app
       # Se não quiser volume em produção, remova a linha acima.
-    command: ["npm", "run", "dev"] 
+    command: ["npm","start"] 
     # Caso seu backend não tenha nodemon, altere para ["npm","start"]
 
   # ===================================================
