@@ -4,7 +4,6 @@ import { CartContext } from '../context/CartContext.jsx';
 import ProductCard from '../components/ProductCard.jsx';
 import styles from './HomePage.module.css'; // IMPORT CSS Module
 import { getProducts } from '../services/api.js';
-// import mockProduct from '../services/mockProduct.js'; // Import mock data
 
 export default function HomePage() {
   const [products, setProducts] = useState([]);

@@ -3,37 +3,18 @@ version: "3.8"
 services:
 
   # ===================================================
-  # Serviço: MongoDB
+  # Serviço: Backend Node.js (usa Mongo remoto)
   # ===================================================
-  mongo:
-    image: mongo:6.0-alpine
-    container_name: dropshipping-mongo
-    restart: unless-stopped
-    ports:
-      - "27017:27017"
-    volumes:
-      - mongodb_data:/data/db
-
-  # ===================================================
-  # Serviço: Backend Node.js
-  # ===================================================
-  backend:
-    container_name: dropshipping-backend
-    build:
-      context: ./dropshipping-backend
-      dockerfile: Dockerfile
-    restart: unless-stopped
-    env_file:
-      - ./dropshipping-backend/.env
-    ports:
-      - "5000:5000"
-    depends_on:
-      - mongo
-#    volumes:
-#      - ./dropshipping-backend:/app
-      # Se não quiser volume em produção, remova a linha acima.
-    command: ["npm","start"] 
-    # Caso seu backend não tenha nodemon, altere para ["npm","start"]
+backend:
+  build:
+    context: ./dropshipping-backend
+    dockerfile: Dockerfile
+  env_file:
+    - ./dropshipping-backend/.env
+  ports:
+    - "5001:5001"
+  command: ["npm", "start"]
+  restart: unless-stopped
 
   # ===================================================
   # Serviço: Frontend React + Nginx
@@ -43,11 +24,10 @@ services:
     build:
       context: ./dropshipping-frontend
       dockerfile: Dockerfile
+      args:
+        REACT_APP_API_URL: "http://backend:5001/api"
     restart: unless-stopped
     ports:
       - "3000:80"
     depends_on:
       - backend
-
-volumes:
-  mongodb_data:

@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // Defina a baseURL do backend:
 const api = axios.create({
-  baseURL: 'http://localhost:5001/api', // ajuste se o seu backend estiver em outra porta
+  baseURL: process.env.REACT_APP_API_URL || 'http://localhost:5001/api',
   headers: {
     'Content-Type': 'application/json'
   }

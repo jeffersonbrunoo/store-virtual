@@ -121,15 +121,87 @@ cd store-virtual
    http://localhost:3000
    ```
 
-## Dockerização
+# Dockerização
 
-Este projeto já possui Dockerfiles para o **backend**, **frontend** e um `docker-compose.yml` para orquestrar toda a aplicação (incluindo o banco MongoDB). Siga os passos abaixo para subir o ambiente completo em containers:
-
-1. **Clone este repositório** (caso ainda não tenha clonado):
-   ```bash
-  git clone git@github.com:jeffersonbrunoo/store-virtual.git
-  cd store-virtual
+Este projeto já possui Dockerfiles para o **backend** e para o **frontend**, além de um `docker-compose.yml` para orquestrar toda a aplicação (sem serviço Mongo local, pois usamos o MongoDB remoto). Siga os passos abaixo para subir o ambiente completo em containers:
 
 ---
+
+## 1. Clone o repositório
+
+```bash
+git clone git@github.com:jeffersonbrunoo/store-virtual.git
+cd store-virtual
+```
+
+---
+
+## 2. Configure o `.env` do backend
+
+### Acesse a pasta do backend:
+
+```bash
+cd dropshipping-backend
+```
+
+### Copie o arquivo de exemplo e edite:
+
+```bash
+cp .env.example .env
+```
+
+### Em `dropshipping-backend/.env`, defina as variáveis:
+
+```env
+MONGODB_URI=<sua_string_de_conexao_MongoDB_remoto>
+PORT=5001
+```
+
+> **Importante:** verifique se o `.gitignore` inclui a linha `.env` para não versionar esse arquivo.
+
+---
+
+## 3. Configure o `.env` do frontend (opcional)
+
+### Volte para a raiz do projeto:
+
+```bash
+cd ..
+```
+
+### Acesse a pasta do frontend:
+
+```bash
+cd dropshipping-frontend
+cp .env.example .env
+```
+
+### Em `dropshipping-frontend/.env`, defina:
+
+```env
+REACT_APP_API_URL=http://backend:5001/api
+```
+
+> Caso não crie esse arquivo, o frontend usará por padrão `http://localhost:5001/api` localmente e `http://backend:5001/api` dentro do container, conforme definido no `docker-compose.yml`.
+
+---
+
+## 4. Suba todos os containers com Docker Compose
+
+### Volte para a raiz do projeto:
+
+```bash
+cd ..
+```
+
+### Rode:
+
+```bash
+docker-compose up --build -d
+```
+
+- O `--build` força a reconstrução das imagens (backend e frontend).
+- A flag `-d` roda os containers em segundo plano.
+
 
 

@@ -3,19 +3,13 @@
 # ---------------------------------------------------
 FROM node:22-alpine AS builder
 
-# Define diretório de trabalho
 WORKDIR /app
 
-# Copia package.json e package-lock.json para cache do npm
 COPY package.json package-lock.json ./
-
-# Instala dependências
 RUN npm ci
-
-# Copia todo o código-fonte
 COPY . .
-
-# Cria o build de produção (gera a pasta 'build/')
+ARG REACT_APP_API_URL
+ENV REACT_APP_API_URL=$REACT_APP_API_URL
 RUN npm run build
 
 # ---------------------------------------------------
@@ -26,14 +20,11 @@ FROM nginx:stable-alpine AS production
 # Remove qualquer conteúdo padrão do Nginx
 RUN rm -rf /usr/share/nginx/html/*
 
-# Copia os arquivos estáticos gerados no estágio anterior
+# Copia os arquivos estáticos gerados
 COPY --from=builder /app/build /usr/share/nginx/html
 
-# (Opcional) Se precisar de configuração customizada do Nginx para React Router:
-COPY nginx.conf /etc/nginx/nginx.conf
+# Copia apenas o bloco server {…} para conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Expõe a porta 80 (onde o Nginx irá servir)
 EXPOSE 80
-
-# Comando padrão do Nginx em primeiro plano
 CMD ["nginx", "-g", "daemon off;"]
