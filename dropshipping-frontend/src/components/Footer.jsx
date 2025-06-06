@@ -32,6 +32,12 @@ export default function Footer() {
           >
             Facebook
           </a>
+          <Link to="/about" className={styles.footerLink}>
+            Sobre nós
+          </Link>
+          <Link to="/contact" className={styles.footerLink}>
+            Fale Conosco
+          </Link>
         </div>
       </div>
     </footer>
