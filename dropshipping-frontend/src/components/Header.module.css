@@ -17,6 +17,13 @@
   color: var(--color-text); /* antes #333333 (aprox. #424242) */
 }
 
+.logoImage {
+  width: 200px; /* ou 32px, se quiser maior */
+  height: 50px;
+  object-fit: contain; /* Garante que a imagem não distorça */
+}
+
+
 .nav {
   display: flex;
   gap: 1.5rem;
